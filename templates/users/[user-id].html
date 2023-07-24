@@ -1,0 +1,18 @@
+<!--Inherits from the base template-->
+{% extends 'base.html' %}
+{% block title %}UserDeets{% endblock %}
+{% block content %}
+<h2>{{ blog_user.full_name }}</h2>
+<p><img src="{{ blog_user.image_url }}"></img></p>
+<ul>
+    <li>User ID: {{ blog_user.id }}</li>
+    <li>First Name: {{ blog_user.first_name }}</li>
+    <li>Last Name: {{ blog_user.last_name }}</li>
+</ul>
+<form action="/users/{{ blog_user.id }}/edit"><button>Edit</button></form>
+<a href="/users">Go Back</a>
+<br><br><br>
+<p>
+<form action="/users/{{ blog_user.id }}/delete"><button>Delete</button></form>
+</p>
+{% endblock %}

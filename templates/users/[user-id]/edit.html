@@ -1,0 +1,16 @@
+<!--Inherit from the base template-->
+{% extends 'base.html' %}
+{% block title %}EditUser{% endblock %}
+{% block content %}
+<h2>Edit a user</h2>
+<h3>Sorry, you can't edit the id number</h3>
+<form method="POST">
+    <p>First Name</p>
+    <input type="text" name="first_name" placeholder="{{ blog_user.first_name }}">
+    <p>Last Name</p>
+    <input type="text" name="last_name" placeholder="{{ blog_user.last_name }}">
+    <p>Profile pic URL</p>
+    <input type="text" name="image_url" placeholder="{{ blog_user.image_url }}">
+    <p><a href="/users/{{ blog_user.id }}">Cancel</a><button type="submit">Save</button></p>
+</form>
+{% endblock %}

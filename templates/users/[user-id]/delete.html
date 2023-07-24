@@ -1,0 +1,10 @@
+<!--Inherits from the base template-->
+{% extends 'base.html' %}
+{% block title %}DeleteUser{% endblock %}
+{% block content %}
+<h2>Sorry to see you go, but best of luck going forward!</h2>
+<p>{{ blog_user.full_name }}</p>
+<form method="POST">
+    <button>Delete</button>
+</form>
+{% endblock %}
