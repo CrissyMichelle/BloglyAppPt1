@@ -1,0 +1,11 @@
+<!--Inherits from the base template-->
+{% extends 'base.html' %}
+{% block title %}DeletePost{% endblock %}
+{% block content %}
+<h2>Ready to toss out your unwanted draft?!</h2>
+<p><b>{{ post.title }}</b></p>
+<p>{{ post.content }}</p>
+<form method="POST">
+    <button>Delete</button>
+</form>
+{% endblock %}

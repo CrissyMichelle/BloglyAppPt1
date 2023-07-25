@@ -34,3 +34,20 @@ class User(db.Model):
     def full_name(self):
         """Returns concatenation of user's names"""
         return f"{self.first_name} {self.last_name}"
+    
+class Post(db.Model):
+    """Table of users' blog posts"""
+    __tablename__ = 'jog_posts'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.Text, nullable = False, default="Untitled Post")
+    content = db.Column(db.Text, nullable=False, unique=True)
+    created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('joggers.id'))
+    
+    jogger = db.relationship('User', backref='jog_posts')
+
+    def __repr__(self):
+        """dunder method for easy representation of user-object records"""
+        jog_post = self
+        return f"<Post id = {jog_post.id} Title = {jog_post.title} Created at = {jog_post.created_at}  User = {jog_post.jogger.full_name}>"

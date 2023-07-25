@@ -1,0 +1,13 @@
+<!--Inherits from the base template-->
+{% extends 'base.html' %}
+{% block title %}NewPost{% endblock %}
+{% block content %}
+<h2>Add Post for {{ blogger.full_name }}</h2>
+<form method="POST">
+    <p>Title</p>
+    <input type="text" name="blog_title">
+    <p>Post Content</p>
+    <textarea name="blog_content" rows="8" cols="75"></textarea>
+    <p><a href="/users/{{ blogger.id }}">Cancel</a><button type="submit">Add</button></p>
+</form>
+{% endblock %}

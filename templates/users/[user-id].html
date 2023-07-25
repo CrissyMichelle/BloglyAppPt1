@@ -11,8 +11,15 @@
 </ul>
 <form action="/users/{{ blog_user.id }}/edit"><button>Edit</button></form>
 <a href="/users">Go Back</a>
-<br><br><br>
-<p>
+<br>
+<p><hr>
 <form action="/users/{{ blog_user.id }}/delete"><button>Delete</button></form>
-</p>
+<hr></p>
+<h3>Posts?</h3>
+    <ul>
+        {% for post in blog_posts %}
+        <li><a href="/posts/{{ post.id }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+<form action="/users/{{ blog_user.id }}/posts/new"><button>Add Post</button></form>
 {% endblock %}
