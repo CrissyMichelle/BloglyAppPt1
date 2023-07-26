@@ -1,0 +1,13 @@
+<!--Inherits the base template-->
+{% extends 'base.html' %}
+{% block title %}Add Tag{% endblock %}
+{% block content %}
+<h2>Create a tag</h2>
+<form method="POST">
+    <p>Name</p>
+    <input type="text" name="tag_name" placeholder="Name the new tag">
+    <p>
+        <a href="/users/index">Cancel</a>
+        <button type="submit">Add</button></p>
+</form>
+{% endblock %}

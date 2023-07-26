@@ -8,6 +8,10 @@
     <input type="text" name="blog_title" placeholder="{{ post.title }}">
     <p>Post Content</p>
     <textarea name="blog_content" rows="8" cols="75">{{ post.content }}</textarea>
+    <br>
+    {% for tag in tags %}
+    <input type="checkbox" name="tagged" value="{{ tag.id }}">{{ tag.name }}<br>
+    {% endfor %}
     <p><a href="/users/{{ post.user_id }}">Cancel</a><button type="submit">Edit</button></p>
 </form>
 {% endblock %}

@@ -1,0 +1,15 @@
+<!--Inherits the base template-->
+{% extends 'base.html' %}
+{% block title %}Show Tag{% endblock %}
+{% block content %}
+<h2>{{ tag.name }}</h2>
+<ul>
+    {% for post in blog_posts %}
+    <li><a href="/posts/{{ post.id }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+<form action="/tags/{{ tag.id }}/edit"><button>Edit</button></form>
+<form action="/tags/{{ tag.id }}/delete"><button>Delete</button></form>
+<hr>
+<p><a href="/tags">Back to tags list</a></p>
+{% endblock %}

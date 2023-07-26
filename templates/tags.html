@@ -1,0 +1,12 @@
+<!--Inherits the base template-->
+{% extends 'base.html' %}
+{% block title %}TagsList{% endblock %}
+{% block content %}
+<h2>Tags</h2>
+<ul>
+    {% for tag in tags %}
+    <li><a href="/tags/{{ tag.id }}">{{ tag.name }}</a></li>
+    {% endfor %}
+</ul>
+<button><a href="/tags/new">Add Tag</a></button>
+{% endblock %}

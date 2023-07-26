@@ -1,0 +1,12 @@
+<!--Inherits from the base template-->
+{% extends 'base.html' %}
+{% block title %}Delete Tag{% endblock %}
+{% block content %}
+<h2>{{ tag.name }}</h2>
+<p><i>Click to permanently remove the tag from Blogly and all associated blogly posts</i></p>
+<form method="POST">
+    <button>Delete</button>
+</form>
+<hr>
+<p><a href="/tags">Changed your mind?</a></p>
+{% endblock %}

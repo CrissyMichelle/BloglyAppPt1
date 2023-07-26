@@ -1,0 +1,11 @@
+<!--Inherits from the base template-->
+{% extends 'base.html' %}
+{% block title %}EditTags{% endblock %}
+{% block content %}
+<h2>Rename a Tag</h2>
+<form method="POST">
+    <p>Name</p>
+    <input type="text" name="tag_name" placeholder="{{ tag.name }}">
+    <p><a href="/tags">Cancel</a><button type="submit">Edit</button></p>
+</form>
+{% endblock %}

@@ -1,5 +1,5 @@
 """Seed file to make sample data for blogly database"""
-from models import User, Post, db
+from models import User, Post, Tag, PostTag, db
 from app import app
 
 # Create all tables
@@ -8,6 +8,9 @@ db.create_all()
 
 # If table isn't empty, empty it
 User.query.delete()
+Post.query.delete()
+Tag.query.delete()
+PostTag.query.delete()
 
 # Add bloggers
 isaac = User(first_name='Issac', last_name='Newton')
@@ -31,6 +34,7 @@ third = Post(title="Doctor says", content="Sweden this time of year might be goo
 vacay = Post(title="Pet Hair", content="I may be covered in cat hair and bunny fluff but I still smell good.", user_id=11)
 moonlight = Post(title="This Moonlight", content="Until we fall asleep the rolling thunder rattles the ice cream machine", user_id=11)
 nine_toe = Post(title="Rock All Night", content="We says no funny stuff.  His girlfriend gave up her toe!", user_id=11)
+putput = Post(title="The Ring of Fire", content="Bilbo liked listening to Johnny the Bard Cash, and that means comfort.", user_id=9)     
 # Add and commit new user objects first
 db.session.add(isaac)
 db.session.add(charbli)
@@ -55,5 +59,27 @@ db.session.add(third)
 db.session.add(vacay)
 db.session.add(moonlight)
 db.session.add(nine_toe)
+db.session.add(putput)
+
+db.session.commit()
+
+# Add tags and tagged posts
+fun = Tag(name='Fun')
+health = Tag(name='Feels')
+bloop = Tag(name='on Fleek')
+boats = Tag(name="Boating") 
+
+db.session.add(fun)
+db.session.add(health)
+db.session.add(bloop)
+db.session.add(boats)
+
+db.session.commit()
+
+tag_jog = PostTag(post_id=1, tag_id=1)
+put_tag = PostTag(post_id=7, tag_id=4)
+
+db.session.add(tag_jog)
+db.session.add(put_tag)
 
 db.session.commit()
